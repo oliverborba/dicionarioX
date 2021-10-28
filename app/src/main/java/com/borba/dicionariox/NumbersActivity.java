@@ -3,7 +3,9 @@ package com.borba.dicionariox;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import org.w3c.dom.Text;
@@ -29,15 +31,12 @@ public class NumbersActivity extends AppCompatActivity {
         words.add("nove");
         words.add("dez");
 
-        LinearLayout rootView = (LinearLayout) findViewById(R.id.rootView);
+        ArrayAdapter<String> itensAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, words);
 
+        ListView listView = (ListView) findViewById(R.id.rootView);
 
-        for (int index = 0; index < words.size(); index++) {
-            TextView wordView = new TextView(this);
-            wordView.setText(words.get(index));
-            rootView.addView(wordView);
-
-        }
+        listView.setAdapter(itensAdapter);
 
     }
+
 }
