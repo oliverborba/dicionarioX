@@ -17,25 +17,25 @@ public class NumbersActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_numbers);
+        setContentView(R.layout.lista_view);
 
-        ArrayList<String> words = new ArrayList<>();
-        words.add("um");
-        words.add("dois");
-        words.add("três");
-        words.add("quatro");
-        words.add("cinco");
-        words.add("seis");
-        words.add("sete");
-        words.add("oito");
-        words.add("nove");
-        words.add("dez");
+        ArrayList<Word> words = new ArrayList<>();
+        words.add(new Word("um", "one", R.drawable.number_one));
+        words.add(new Word("dois", "two", R.drawable.number_two));
+        words.add(new Word("três", "thres", R.drawable.number_three));
+        words.add(new Word("quatro", "four"));
+        words.add(new Word("cinco", "five"));
+        words.add(new Word("seis", "six"));
+        words.add(new Word("sete", "seven"));
+        words.add(new Word("oito", "eight"));
+        words.add(new Word("nove", "nine"));
+        words.add(new Word("dez", "ten"));
 
-        ArrayAdapter<String> itensAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, words);
+        WordAdapter adapter = new WordAdapter(this, words, R.color.cat_numeros);
 
-        ListView listView = (ListView) findViewById(R.id.rootView);
+        ListView listView = (ListView) findViewById(R.id.list);
 
-        listView.setAdapter(itensAdapter);
+        listView.setAdapter(adapter);
 
     }
 
